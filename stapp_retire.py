@@ -235,7 +235,7 @@ def main():
             df = copy.deepcopy(st.session_state.df)
 
             # 要約統計量の表示
-
+            st_display_table(df.describe())
             
         else:
             st.subheader('訓練用データをアップロードしてください')
@@ -250,7 +250,7 @@ def main():
             df = copy.deepcopy(st.session_state.df)
 
             # グラフの表示
-
+            st_display_graph(df, '退職')
             
         else:
             st.subheader('訓練用データをアップロードしてください')
@@ -271,7 +271,8 @@ def main():
             clf, train_pred, train_scores = ml_dtree(train_X, train_Y, 2)
 
             # 正解率を出力
-
+            st.caption('決定木の予測')
+            st.subheader(f"正解率:{train_scores}")
 
             # 決定木のツリーを出力
             
